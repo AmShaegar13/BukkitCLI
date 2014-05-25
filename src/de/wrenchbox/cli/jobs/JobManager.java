@@ -1,5 +1,6 @@
 package de.wrenchbox.cli.jobs;
 
+import java.io.File;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class JobManager {
@@ -14,8 +15,16 @@ public class JobManager {
 		jobs.add(new Job(command));
 	}
 	
+	public void createJob(String command, File dir) {
+		jobs.add(new Job(command, dir));
+	}
+	
 	public void createJob(String command, CallbackHandler callback) {
 		jobs.add(new Job(command, callback));
+	}
+	
+	public void createJob(String command, File dir, CallbackHandler callback) {
+		jobs.add(new Job(command, dir, callback));
 	}
 
 	public Job getNextJob() throws InterruptedException {
