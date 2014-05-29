@@ -9,6 +9,13 @@ import java.util.logging.Logger;
 
 import de.wrenchbox.cli.BukkitCLI;
 
+/**
+ * A job consists of a command to be executed and optionally a working
+ * directory and a {@link CallbackHandler}. Use {@link BukkitCLI#createJob} create jobs.
+ * 
+ * @author AmShaegar
+ *
+ */
 public class Job implements Runnable {
 
 	private String command;

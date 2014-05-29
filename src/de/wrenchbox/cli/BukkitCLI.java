@@ -10,7 +10,7 @@ import de.wrenchbox.cli.jobs.JobManager;
 import de.wrenchbox.cli.jobs.Worker;
 
 /**
- * API for executing commands through Bukkit. Use the createJob() methods to
+ * API for executing commands through Bukkit. Use the @{@link #createJob} methods to
  * get started.
  * 
  * @author AmShaegar
@@ -73,7 +73,7 @@ public class BukkitCLI extends JavaPlugin {
 	}
 
 	/**
-	 * Queues a command for execution with a callback handler.
+	 * Queues a command for execution with a {@link CallbackHandler}.
 	 * 
 	 * @param command Command to execute.
 	 * @param callback CallbackHandler to handle exit code, stdout and stderror.
@@ -83,7 +83,7 @@ public class BukkitCLI extends JavaPlugin {
 	}
 
 	/**
-	 * Queues a command for execution with a callback handler in a specific
+	 * Queues a command for execution with a {@link CallbackHandler} in a specific
 	 * working directory.
 	 * 
 	 * @param command Command to execute.

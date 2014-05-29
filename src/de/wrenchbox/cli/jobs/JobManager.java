@@ -3,6 +3,12 @@ package de.wrenchbox.cli.jobs;
 import java.io.File;
 import java.util.concurrent.LinkedBlockingQueue;
 
+/**
+ * A manager class to maintain and create {@link Job}s.
+ * 
+ * @author AmShaegar
+ *
+ */
 public class JobManager {
 	
 	private LinkedBlockingQueue<Job> jobs;
