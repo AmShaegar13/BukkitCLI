@@ -16,27 +16,23 @@ public class Job implements Runnable {
 	private CallbackHandler callback;
 	private static Runtime runtime = Runtime.getRuntime();
 
-	public Job(String command) {
+	protected Job(String command) {
 		this.command = command;
 	}
 	
-	public Job(String command, File dir) {
+	protected Job(String command, File dir) {
 		this(command);
 		this.dir = dir;
 	}
 	
-	public Job(String command, CallbackHandler callback) {
+	protected Job(String command, CallbackHandler callback) {
 		this(command);
 		this.callback = callback;
 	}
 	
-	public Job(String command, File dir, CallbackHandler callback) {
+	protected Job(String command, File dir, CallbackHandler callback) {
 		this(command, dir);
 		this.callback = callback;
-	}
-
-	public String getCommand() {
-		return command;
 	}
 	
 	@Override

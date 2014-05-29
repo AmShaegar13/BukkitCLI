@@ -44,7 +44,6 @@ public class BukkitCLI extends JavaPlugin {
 		worker.interrupt();
 	}
 	
-	
 	/**
 	 * Getter for the plugin instance.
 	 * 
