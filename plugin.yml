@@ -1,5 +1,5 @@
 name: BukkitCLI
 main: de.wrenchbox.cli.BukkitCLI
 author: AmShaegar
-version: 0.1
+version: 1.0
 description: BukkitCLI provides a simple way for plugins to execute commands on the command line and can be used as API.
