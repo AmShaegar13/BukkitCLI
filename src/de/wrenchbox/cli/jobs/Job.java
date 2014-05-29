@@ -55,16 +55,25 @@ public class Job implements Runnable {
 			}
 			int exitCode = p.waitFor();
 			if (callback != null) {
-				callback.execute(exitCode,readFromStream(p.getInputStream()), readFromStream(p.getErrorStream()));
+				callback.onExecute(exitCode,readFromStream(p.getInputStream()), readFromStream(p.getErrorStream()));
 			} else if (exitCode != 0) {
 				logger.warning(String.format("Failed to execute '%s'. Exit code: %d", command, exitCode));
 			}
+			return;
 		} catch (IOException e) {
-			logger.warning(String.format("Unable to execute '%s'. %s: %s", command, e.getClass().getSimpleName(), e.getMessage()));
+			onError(e, String.format("Unable to execute '%s'. %s: %s", command, e.getClass().getSimpleName(), e.getMessage()));
 		} catch (IllegalArgumentException e) {
-			logger.warning("Unable to execute command. Cannot be empty.");
+			onError(e, "Unable to execute command. Cannot be empty.");
 		} catch (InterruptedException e) {
-			logger.warning("Interrupted while waiting for process to end.");
+			onError(e, "Interrupted while waiting for process to end.");
+		}
+	}
+
+	private void onError(Throwable t, String message) {
+		if (callback != null) {
+			callback.onError(t, command, message);
+		} else {
+			BukkitCLI.getPlugin().getLogger().warning(message);
 		}
 	}
 
